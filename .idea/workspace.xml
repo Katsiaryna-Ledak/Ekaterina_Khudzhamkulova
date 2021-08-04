@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14965b48-d648-43cb-a202-836bd8f563fd" name="Changes" comment="tests, profiles and test suites added">
-      <change afterPath="$PROJECT_DIR$/code_style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/calculator-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/DivisionOperationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/MultiplyOperationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SubtractOperationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SumOperationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testing/allTests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testing/defaultTests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testing/multiplyDivideTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DivisionOperationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw1/DivisionOperationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MultiplyOperationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw1/MultiplyOperationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SubtractOperationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw1/SubtractOperationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SumOperationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epam/tc/hw1/SumOperationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/testing/allTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng/allTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/testing/defaultTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng/defaultTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/testing/multiplyDivideTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng/multiplyDivideTests.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +34,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="enabledProfiles">
+      <list>
+        <option value="default-operations-profile" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1w8SPVpd3zvpREYp1Q98UJYRMeP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -62,7 +66,7 @@
     <configuration name="DivisionOperationTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Ekaterina_Khudzhamkulova" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DivisionOperationTest" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.tc.hw1.DivisionOperationTest" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -73,7 +77,7 @@
     <configuration name="MultiplyOperationTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Ekaterina_Khudzhamkulova" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MultiplyOperationTest" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.tc.hw1.MultiplyOperationTest" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -84,7 +88,7 @@
     <configuration name="MultiplyOperationTest.shouldMultiplyTwoLongNumbers" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Ekaterina_Khudzhamkulova" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MultiplyOperationTest" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.tc.hw1.MultiplyOperationTest" />
       <option name="METHOD_NAME" value="shouldMultiplyTwoLongNumbers" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />

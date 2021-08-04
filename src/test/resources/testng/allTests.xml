@@ -3,7 +3,8 @@
 <suite name="allTestsSuite">
   <test name="allTests">
     <packages>
-      <package name="src/test/java"/>
+      <package name="com.epam.tc.hw1">
+      </package>
     </packages>
   </test>
 </suite>

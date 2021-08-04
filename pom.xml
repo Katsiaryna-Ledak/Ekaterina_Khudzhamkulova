@@ -14,11 +14,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
-        <testng.suite.file>${testng.configs.path}/lesson1.empty.suite.xml</testng.suite.file>
+        <testng.suite.file>${testng.configs.path}/defaultTests.xml</testng.suite.file>
 
         <checkstyle.version>8.44</checkstyle.version>
         <testng.version>7.4.0</testng.version>
         <assertj-core.version>3.20.2</assertj-core.version>
+        <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     </properties>
 
     <build>
@@ -76,18 +78,14 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testng/defaultTests.xml</maven-surefire-plugin.suiteXmlFile>
+                <testng.suite.file>${testng.configs.path}/defaultTests.xml</testng.suite.file>
             </properties>
         </profile>
 
         <profile>
             <id>all-operations-profile</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
             <properties>
-                <maven-surefire-plugin-general.suiteXmlFile>${project.build.testOutputDirectory}/testng/allTests.xml
-                </maven-surefire-plugin-general.suiteXmlFile>
+                <testng.suite.file>${testng.configs.path}/AllTests.xml</testng.suite.file>
             </properties>
         </profile>
 
@@ -97,8 +95,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <maven-surefire-plugin-multdiv.suiteXmlFile>${project.build.testOutputDirectory}/testng/multiplyDivideTests.xml
-                </maven-surefire-plugin-multdiv.suiteXmlFile>
+                <testng.suite.file>${testng.configs.path}/multiplyDivideTests.xml</testng.suite.file>
             </properties>
         </profile>
 

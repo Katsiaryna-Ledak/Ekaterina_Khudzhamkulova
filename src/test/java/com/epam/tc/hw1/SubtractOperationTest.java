@@ -1,3 +1,5 @@
+package com.epam.tc.hw1;
+
 import static org.testng.AssertJUnit.assertEquals;
 
 import com.epam.tat.module4.Calculator;

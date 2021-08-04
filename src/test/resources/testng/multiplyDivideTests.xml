@@ -4,11 +4,12 @@
   <test name="multiplyDivideOperationsTest">
     <groups>
       <run>
-        <include name="multiplyDivide"/>
+        <include name="multiplyDivideOperationsTest"/>
       </run>
     </groups>
     <packages>
-      <package name="src/test/java"/>
+      <package name="com.epam.tc.hw1">
+      </package>
     </packages>
   </test>
 </suite>
