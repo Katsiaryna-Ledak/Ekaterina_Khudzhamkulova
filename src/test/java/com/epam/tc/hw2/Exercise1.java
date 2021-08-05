@@ -1,6 +1,7 @@
 package com.epam.tc.hw2;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.assertj.core.api.Assertions;
@@ -8,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,6 +22,7 @@ public class Exercise1 {
     private String userLogin = "ROMAN IOVLEV";
 
     private WebDriver webDriver;
+    private WebElement webElement;
 
 
     @BeforeClass
@@ -63,9 +66,11 @@ public class Exercise1 {
         Assertions.assertThat(webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@href='contacts.html']")).isDisplayed());
 
         // 3. SERVICE
-        String serviceMenu = webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']")).getText();
+        String serviceMenu = webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']"))
+                                      .getText();
         Assertions.assertThat(serviceMenu.contains("SERVICE"));
-        Assertions.assertThat(webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']")).isDisplayed());
+        Assertions.assertThat(webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']"))
+                                       .isDisplayed());
 
         // 4. METALS & COLORS
         String metalsAndColorsMenu = webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@href='metals-colors.html']")).getText();
@@ -107,7 +112,34 @@ public class Exercise1 {
         String phrase4Actual = webDriver.findElement(By.xpath("(//span[@class='benefit-txt'])[4]")).getText();
         Assertions.assertThat(phrase4Actual.equals(expectedPhrase4));
 
+        // Assert that there is the iframe with “Frame Button” exist
+        Assertions.assertThat(webDriver.findElement(By.id("frame")).isEnabled());
+        Assertions.assertThat(webDriver.findElement(By.id("frame")).isDisplayed());
+
+        // Switch to the iframe and check that there is “Frame Button” in the iframe
+        webElement = webDriver.findElement(By.xpath("//iframe[@id='frame']"));
+        String startWindowPage = webDriver.getWindowHandle();
+        webDriver.switchTo().frame(webElement);
+        Assertions.assertThat(webDriver.findElement(By.id("frame-button")).isEnabled());
+
+        // Switch to original window back
+        webDriver.switchTo().window(startWindowPage);
+
+        // Assert that there are 5 items in the Left Section are displayed and they have proper text
+        List<String> expectedSideBarMenuList = Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
+        List<WebElement> actualSideBarMenuList = webDriver.findElements(By.xpath("//ul[contains (@class, 'left')]/li/a"));
+        Assertions.assertThat(actualSideBarMenuList.size()).isEqualTo(expectedSideBarMenuList.size());
+        for (int i = 0; i < actualSideBarMenuList.size(); i++) {
+            Assertions.assertThat(actualSideBarMenuList.get(i).isDisplayed());
+            Assertions.assertThat(actualSideBarMenuList.get(i).getText()).isEqualTo(expectedSideBarMenuList.get(i));
+        }
+
+        // Close Browser
 
     }
 
+    @AfterClass()
+    public void tearDown() {
+        webDriver.close();
+    }
 }
