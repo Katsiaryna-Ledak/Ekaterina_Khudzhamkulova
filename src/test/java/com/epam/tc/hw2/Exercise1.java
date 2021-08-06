@@ -66,11 +66,13 @@ public class Exercise1 {
         Assertions.assertThat(webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@href='contacts.html']")).isDisplayed());
 
         // 3. SERVICE
-        String serviceMenu = webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']"))
-                                      .getText();
+        String serviceMenu = webDriver
+            .findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']"))
+            .getText();
         Assertions.assertThat(serviceMenu.contains("SERVICE"));
-        Assertions.assertThat(webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']"))
-                                       .isDisplayed());
+        Assertions.assertThat(webDriver
+            .findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@class='dropdown-toggle']"))
+            .isDisplayed());
 
         // 4. METALS & COLORS
         String metalsAndColorsMenu = webDriver.findElement(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']//a[@href='metals-colors.html']")).getText();
@@ -126,8 +128,10 @@ public class Exercise1 {
         webDriver.switchTo().window(startWindowPage);
 
         // Assert that there are 5 items in the Left Section are displayed and they have proper text
-        List<String> expectedSideBarMenuList = Arrays.asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
-        List<WebElement> actualSideBarMenuList = webDriver.findElements(By.xpath("//ul[contains (@class, 'left')]/li/a"));
+        List<String> expectedSideBarMenuList = Arrays
+            .asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
+        List<WebElement> actualSideBarMenuList = webDriver
+            .findElements(By.xpath("//ul[contains (@class, 'left')]/li/a"));
         Assertions.assertThat(actualSideBarMenuList.size()).isEqualTo(expectedSideBarMenuList.size());
         for (int i = 0; i < actualSideBarMenuList.size(); i++) {
             Assertions.assertThat(actualSideBarMenuList.get(i).isDisplayed());
