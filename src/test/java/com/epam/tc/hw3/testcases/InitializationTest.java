@@ -26,6 +26,8 @@ public class InitializationTest {
         + "wish to get more…");
     protected List<String> leftSideBarMenuItems = Arrays
         .asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
+    protected List<String> logTextItems = Arrays.asList("Colors: value changed to Yellow",
+        "metal: value changed to Selen", "Wind: condition changed to true", "Water: condition changed to true");
 
     WebDriver webDriver;
 

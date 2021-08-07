@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class HomePageTC extends InitializationTest {
 
     @Test
-    public void ex1HW3EpamPageTest() {
+    public void ex1ex2HW3EpamPageTest() {
 
         HomePage homePage = new HomePage(webDriver);
 
@@ -89,6 +89,33 @@ public class HomePageTC extends InitializationTest {
 
             for (String actualLeftSideBarItem : sideBarItems) {
                 Assertions.assertThat(expectedLeftSideBarItem.equals(actualLeftSideBarItem));
+            }
+        }
+
+
+        // ex 2
+        // Open through the header menu Service -> Different Elements Page
+        homePage.clickOnServiceDiffElementsHead();
+
+        // Select checkboxes Water and Wind
+        homePage.selectWaterCheckBox();
+        homePage.selectWindCheckbox();
+
+        // Select radio Selen
+        homePage.selectSelenRadio();
+
+        // Select in dropdown Yellow
+        homePage.selectYellowInDropdown();
+
+        // Assert that
+        //for each checkbox there is an individual log row and value is corresponded to the status of checkbox
+        //for radio button there is a log row and value is corresponded to the status of radio button
+        //for dropdown there is a log row and value is corresponded to the selected value
+        List<String> actualLogList = homePage.getLogList();
+        for (String expectedLogText : logTextItems) {
+
+            for (String actualLogText : actualLogList) {
+                Assertions.assertThat(expectedLogText.equals(actualLogText));
             }
         }
 

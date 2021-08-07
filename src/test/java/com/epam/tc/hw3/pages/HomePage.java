@@ -49,6 +49,29 @@ public class HomePage {
     @FindBy(className = "sidebar-menu left")
     private List<WebElement> leftSideBarItems;
 
+    // head menu elements
+    @FindBy(xpath = "//ul[contains(@class, 'm-l8')]/li/a")
+    private List<WebElement> headMenuElement;
+    @FindBy(xpath = "//a[text() = 'Different elements']")
+    private WebElement getServiceDiffElementsHeadMenu;
+
+    // check boxes
+    @FindBy(css = "input[type=checkbox]")
+    private List<WebElement> getCheckboxes;
+
+    // radio buttons
+    @FindBy(className = "label-radio")
+    private List<WebElement> radioButtons;
+
+    // dropdown with Colors
+    @FindBy(css = "option")
+    private List<WebElement> colorsDropdown;
+    @FindBy(xpath = "//select[@class='uui-form-element']/option[text()='Yellow']")
+    private WebElement yellowColorDropdown;
+
+    // log panel elements
+    @FindBy(css = "ul.panel-body-list.logs > li")
+    private List<WebElement> logElementList;
 
     public void performLogin(String userLoginName, String userPassword) {
         openLoginField.click();
@@ -59,11 +82,11 @@ public class HomePage {
         loginButton.click();
     }
 
-    public String getLoggedInUserName(){
+    public String getLoggedInUserName() {
         return userName.getText();
     }
 
-    public List<String> getNavBarItemsNames(){
+    public List<String> getNavBarItemsNames() {
         List<String> navBarItemsList = new ArrayList<>();
         for (WebElement navBarItem : navBarElements) {
             navBarItemsList.add(navBarItem.getText());
@@ -71,7 +94,7 @@ public class HomePage {
         return navBarItemsList;
     }
 
-    public List<WebElement> getIndexImages(){
+    public List<WebElement> getIndexImages() {
         return indexImagesList;
     }
 
@@ -79,7 +102,7 @@ public class HomePage {
         List<String> textUnderImagesList = new ArrayList<>();
         for (WebElement textUnderImage : textUnderBenefitImagesList) {
             textUnderImagesList.add(textUnderImage.getText());
-            }
+        }
         return textUnderImagesList;
     }
 
@@ -91,7 +114,7 @@ public class HomePage {
         return frameButton;
     }
 
-    public List<String> getLeftSideBarItems(){
+    public List<String> getLeftSideBarItems() {
         List<String> leftSideBarItemsList = new ArrayList<>();
         for (WebElement leftBarItem : leftSideBarItems) {
             leftSideBarItemsList.add(leftBarItem.getText());
@@ -99,4 +122,33 @@ public class HomePage {
         return leftSideBarItemsList;
     }
 
+    public void clickOnServiceDiffElementsHead() {
+        headMenuElement.get(2).click();
+        getServiceDiffElementsHeadMenu.click();
+    }
+
+    public void selectWaterCheckBox() {
+        getCheckboxes.get(0).click();
+    }
+
+    public void selectWindCheckbox() {
+        getCheckboxes.get(2).click();
+    }
+
+    public void selectSelenRadio() {
+        radioButtons.get(3).click();
+    }
+
+    public void selectYellowInDropdown() {
+        colorsDropdown.get(3).click();
+        yellowColorDropdown.click();
+    }
+
+    public List<String> getLogList() {
+        List<String> logList = new ArrayList<>();
+        for (WebElement logItem : logElementList) {
+            logList.add(logItem.getText());
+        }
+        return logList;
+    }
 }
