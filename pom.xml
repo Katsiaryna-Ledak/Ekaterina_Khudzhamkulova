@@ -107,6 +107,13 @@
             </properties>
         </profile>
 
+        <profile>
+            <id>ex1Ex2HW3Profile</id>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/ex1Ex2HW3.xml</testng.suite.file>
+            </properties>
+        </profile>
+
     </profiles>
 
     <dependencies>
