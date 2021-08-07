@@ -4,6 +4,7 @@
   <test name="ex1Ex2HW3TestSuite">
     <packages>
       <package name="com.epam.tc.hw3.testcases.HomePageTC"></package>
+      <package name="com.epam.tc.hw3.testcases.InitializationTest"></package>
     </packages>
   </test>
 </suite>

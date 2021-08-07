@@ -1,6 +1,8 @@
 package com.epam.tc.hw3.testcases;
 
+import com.epam.tc.hw3.pages.DifferentElementsPage;
 import com.epam.tc.hw3.pages.HomePage;
+import com.epam.tc.hw3.pages.LoginPanelPage;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebElement;
@@ -11,7 +13,7 @@ public class HomePageTC extends InitializationTest {
     @Test
     public void ex1ex2HW3EpamPageTest() {
 
-        HomePage homePage = new HomePage(webDriver);
+        LoginPanelPage loginPage = new LoginPanelPage(webDriver);
 
         // Open test site by URL
         webDriver.navigate().to(siteURL);
@@ -20,13 +22,14 @@ public class HomePageTC extends InitializationTest {
         Assertions.assertThat(webDriver.getTitle()).isEqualTo(browserTitle);
 
         // Perform login
-        homePage.performLogin(userName, userPswd);
+        loginPage.performLogin(userName, userPswd);
 
         // Assert User name in the left-top side of screen that user is loggined ("ROMAN IOVLEV")
-        String actualName = homePage.getLoggedInUserName();
+        String actualName = loginPage.getLoggedInUserName();
         Assertions.assertThat(actualName.equals(userLogin));
 
         // Assert that there are 4 items on the header section are displayed and they have proper texts
+        HomePage homePage = new HomePage(webDriver);
         List<String> actualNavBarElements = homePage.getNavBarItemsNames();
 
         Integer expectedCountOfNavBarItems = navBarNames.size();
@@ -95,23 +98,24 @@ public class HomePageTC extends InitializationTest {
 
         // ex 2
         // Open through the header menu Service -> Different Elements Page
+        DifferentElementsPage diffElementsPage = new DifferentElementsPage(webDriver);
         homePage.clickOnServiceDiffElementsHead();
 
         // Select checkboxes Water and Wind
-        homePage.selectWaterCheckBox();
-        homePage.selectWindCheckbox();
+        diffElementsPage.selectWaterCheckBox();
+        diffElementsPage.selectWindCheckbox();
 
         // Select radio Selen
-        homePage.selectSelenRadio();
+        diffElementsPage.selectSelenRadio();
 
         // Select in dropdown Yellow
-        homePage.selectYellowInDropdown();
+        diffElementsPage.selectYellowInDropdown();
 
         // Assert that
         //for each checkbox there is an individual log row and value is corresponded to the status of checkbox
         //for radio button there is a log row and value is corresponded to the status of radio button
         //for dropdown there is a log row and value is corresponded to the selected value
-        List<String> actualLogList = homePage.getLogList();
+        List<String> actualLogList = diffElementsPage.getLogList();
         for (String expectedLogText : logTextItems) {
 
             for (String actualLogText : actualLogList) {

@@ -8,24 +8,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
+    public WebDriver webDriver;
 
     public HomePage(WebDriver webDriver) {
         PageFactory.initElements(webDriver, this);
+        this.webDriver = webDriver;
     }
-
-    WebDriver webDriver;
-
-    // login web elements
-    @FindBy(id = "user-icon")
-    private WebElement openLoginField;
-    @FindBy(id = "name")
-    private WebElement loginInput;
-    @FindBy(id = "password")
-    private WebElement passwordInput;
-    @FindBy(id = "login-button")
-    private WebElement loginButton;
-    @FindBy(id = "user-name")
-    private WebElement userName;
 
     // header section web elements
     @FindBy(xpath = "//ul[@class='uui-navigation nav navbar-nav m-l8']")
@@ -55,36 +43,7 @@ public class HomePage {
     @FindBy(xpath = "//a[text() = 'Different elements']")
     private WebElement getServiceDiffElementsHeadMenu;
 
-    // check boxes
-    @FindBy(css = "input[type=checkbox]")
-    private List<WebElement> getCheckboxes;
 
-    // radio buttons
-    @FindBy(className = "label-radio")
-    private List<WebElement> radioButtons;
-
-    // dropdown with Colors
-    @FindBy(css = "option")
-    private List<WebElement> colorsDropdown;
-    @FindBy(xpath = "//select[@class='uui-form-element']/option[text()='Yellow']")
-    private WebElement yellowColorDropdown;
-
-    // log panel elements
-    @FindBy(css = "ul.panel-body-list.logs > li")
-    private List<WebElement> logElementList;
-
-    public void performLogin(String userLoginName, String userPassword) {
-        openLoginField.click();
-        loginInput.click();;
-        loginInput.sendKeys(userLoginName);
-        passwordInput.click();
-        passwordInput.sendKeys(userPassword);
-        loginButton.click();
-    }
-
-    public String getLoggedInUserName() {
-        return userName.getText();
-    }
 
     public List<String> getNavBarItemsNames() {
         List<String> navBarItemsList = new ArrayList<>();
@@ -125,30 +84,5 @@ public class HomePage {
     public void clickOnServiceDiffElementsHead() {
         headMenuElement.get(2).click();
         getServiceDiffElementsHeadMenu.click();
-    }
-
-    public void selectWaterCheckBox() {
-        getCheckboxes.get(0).click();
-    }
-
-    public void selectWindCheckbox() {
-        getCheckboxes.get(2).click();
-    }
-
-    public void selectSelenRadio() {
-        radioButtons.get(3).click();
-    }
-
-    public void selectYellowInDropdown() {
-        colorsDropdown.get(3).click();
-        yellowColorDropdown.click();
-    }
-
-    public List<String> getLogList() {
-        List<String> logList = new ArrayList<>();
-        for (WebElement logItem : logElementList) {
-            logList.add(logItem.getText());
-        }
-        return logList;
     }
 }
