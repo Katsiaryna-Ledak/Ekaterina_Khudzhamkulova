@@ -3,8 +3,8 @@
 <suite name="ex1Ex2HW2TestSuite">
   <test name="ex1Ex2HW2TestSuite">
     <packages>
-      <package name="com.epam.tc.hw3.testCases.HomePageTC"></package>
-      <package name="com.epam.tc.hw3.testCases.DifferentElementsTC"></package>
+      <package name="com.epam.tc.hw3.testcases.HomePageTC"></package>
+      <package name="com.epam.tc.hw3.testcases.DifferentElementsTC"></package>
     </packages>
   </test>
 </suite>
