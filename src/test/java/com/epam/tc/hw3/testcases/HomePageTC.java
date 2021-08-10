@@ -3,6 +3,7 @@ package com.epam.tc.hw3.testcases;
 import com.epam.tc.hw3.pages.DifferentElementsPage;
 import com.epam.tc.hw3.pages.HomePage;
 import com.epam.tc.hw3.pages.LoginPanelPage;
+import com.epam.tc.hw3.util.PropertiesFileReader;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebElement;
@@ -21,11 +22,15 @@ public class HomePageTC extends InitializationTest {
         // Assert Browser title
         Assertions.assertThat(webDriver.getTitle()).isEqualTo(browserTitle);
 
+        PropertiesFileReader fileReader = new PropertiesFileReader();
         // Perform login
-        loginPage.performLogin(userName, userPswd);
+        String login = fileReader.getProperties("userName");
+        String password = fileReader.getProperties("userPassword");
+        loginPage.performLogin(login, password);
 
         // Assert User name in the left-top side of screen that user is loggined ("ROMAN IOVLEV")
         String actualName = loginPage.getLoggedInUserName();
+        String userLogin = fileReader.getProperties("userLogin");
         Assertions.assertThat(actualName.equals(userLogin));
 
         // Assert that there are 4 items on the header section are displayed and they have proper texts
