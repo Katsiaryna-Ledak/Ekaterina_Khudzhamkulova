@@ -21,6 +21,8 @@
         <assertj-core.version>3.20.2</assertj-core.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
     </properties>
 
     <build>
@@ -99,6 +101,13 @@
             </properties>
         </profile>
 
+        <profile>
+            <id>ex1Ex2HW2Profile</id>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/ex1Ex2HW2.xml</testng.suite.file>
+            </properties>
+        </profile>
+
     </profiles>
 
     <dependencies>
@@ -120,6 +129,17 @@
             <scope>system</scope>
             <version>1.0</version>
             <systemPath>${basedir}\src\lib\calculator-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

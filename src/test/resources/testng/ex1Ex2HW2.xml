@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="ex1Ex2HW2TestSuite">
+  <test name="ex1Ex2HW2TestSuite">
+    <packages>
+      <package name="com.epam.tc.hw2.Exercise1"></package>
+      <package name="com.epam.tc.hw2.Exercise2"></package>
+    </packages>
+  </test>
+</suite>
