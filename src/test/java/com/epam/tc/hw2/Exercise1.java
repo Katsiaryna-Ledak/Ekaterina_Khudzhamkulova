@@ -15,12 +15,12 @@ import org.testng.annotations.Test;
 
 public class Exercise1 {
 
-    private static final String siteURL = "https://jdi-testing.github.io/jdi-light/index.html";
-    private static final String userName = "Roman";
-    private static final String userPassword = "Jdi1234";
-    private static final String browserTitle = "Home Page";
-    private static final String userLogin = "ROMAN IOVLEV";
-    private static final List<String> expectedBenefitTexts = Arrays.asList("To include good practices\n"
+    private static final String SITE_URL = "https://jdi-testing.github.io/jdi-light/index.html";
+    private static final String USER_NAME = "Roman";
+    private static final String USER_PASSWORD = "Jdi1234";
+    private static final String BROWSER_TITLE = "Home Page";
+    private static final String USER_LOGIN = "ROMAN IOVLEV";
+    private static final List<String> EXPECTED_BENEFIT_TEXTS = Arrays.asList("To include good practices\n"
         + "and ideas from successful\n"
         + "EPAM project", "To be flexible and\n"
         + "customizable", "To be multiplatform", "Already have good base\n"
@@ -45,20 +45,20 @@ public class Exercise1 {
     public void ex1EpamPageTest() {
 
         // Open test site by URL
-        webDriver.navigate().to(siteURL);
+        webDriver.navigate().to(SITE_URL);
 
         // Assert Browser title
-        Assertions.assertThat(webDriver.getTitle()).isEqualTo(browserTitle);
+        Assertions.assertThat(webDriver.getTitle()).isEqualTo(BROWSER_TITLE);
 
         // Perform login
         webDriver.findElement(By.className("profile-photo")).click();
-        webDriver.findElement(By.id("name")).sendKeys(userName);
-        webDriver.findElement(By.id("password")).sendKeys(userPassword);
+        webDriver.findElement(By.id("name")).sendKeys(USER_NAME);
+        webDriver.findElement(By.id("password")).sendKeys(USER_PASSWORD);
         webDriver.findElement(By.id("login-button")).click();
 
         // Assert Username is loggined
         String userNameXPath = "//span[text()='Roman Iovlev']";
-        Assertions.assertThat(webDriver.findElement(By.xpath(userNameXPath)).equals(userLogin));
+        Assertions.assertThat(webDriver.findElement(By.xpath(userNameXPath)).equals(USER_LOGIN));
         // Assert Username is loggined (is displayed)
         Assertions.assertThat(webDriver.findElement(By.xpath(userNameXPath)).isDisplayed());
 
@@ -91,11 +91,11 @@ public class Exercise1 {
 
         // Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<WebElement> indexTextUnderImagesList = webDriver.findElements(By.className("benefit-txt"));
-        int expectedNumberOfPhrases = expectedBenefitTexts.size();
+        int expectedNumberOfPhrases = EXPECTED_BENEFIT_TEXTS.size();
         Assertions.assertThat(indexTextUnderImagesList.size()).isEqualTo(expectedNumberOfPhrases);
 
         for (int i = 0; i < indexTextUnderImagesList.size(); i++) {
-            Assertions.assertThat((indexTextUnderImagesList.get(i)).equals(expectedBenefitTexts.get(i)));
+            Assertions.assertThat((indexTextUnderImagesList.get(i)).equals(EXPECTED_BENEFIT_TEXTS.get(i)));
         }
 
         // Assert that there is the iframe with “Frame Button” exist
@@ -114,7 +114,8 @@ public class Exercise1 {
         List<String> expectedSideBarMenuList = Arrays
             .asList("Home", "Contact form", "Service", "Metals & Colors", "Elements packs");
         List<WebElement> actualSideBarMenuList = webDriver
-            .findElements(By.xpath("//ul[contains (@class, 'left')]/li/a"));
+            .findElements(By.xpath("//ul[@class='sidebar-menu left']/li"));
+
         Assertions.assertThat(actualSideBarMenuList.size()).isEqualTo(expectedSideBarMenuList.size());
         for (int i = 0; i < actualSideBarMenuList.size(); i++) {
             Assertions.assertThat(actualSideBarMenuList.get(i).isDisplayed());

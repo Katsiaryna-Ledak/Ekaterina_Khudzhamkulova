@@ -13,11 +13,11 @@ import org.testng.annotations.Test;
 
 public class Exercise2 {
 
-    private static final String siteURL = "https://jdi-testing.github.io/jdi-light/index.html";
-    private static final String userName = "Roman";
-    private static final String userPassword = "Jdi1234";
-    private static final String browserTitle = "Home Page";
-    private static final String userLogin = "ROMAN IOVLEV";
+    private static final String SITE_URL = "https://jdi-testing.github.io/jdi-light/index.html";
+    private static final String USER_NAME = "Roman";
+    private static final String USER_PASSWORD = "Jdi1234";
+    private static final String BROWSER_TITLE = "Home Page";
+    private static final String USER_LOGIN = "ROMAN IOVLEV";
 
     private WebDriver webDriver;
 
@@ -34,20 +34,20 @@ public class Exercise2 {
     public void ex2EpamPageTest() {
 
         // Open test site by URL
-        webDriver.navigate().to(siteURL);
+        webDriver.navigate().to(SITE_URL);
 
         // Assert Browser title
-        Assertions.assertThat(webDriver.getTitle()).isEqualTo(browserTitle);
+        Assertions.assertThat(webDriver.getTitle()).isEqualTo(BROWSER_TITLE);
 
         // Perform login
         webDriver.findElement(By.className("profile-photo")).click();
-        webDriver.findElement(By.id("name")).sendKeys(userName);
-        webDriver.findElement(By.id("password")).sendKeys(userPassword);
+        webDriver.findElement(By.id("name")).sendKeys(USER_NAME);
+        webDriver.findElement(By.id("password")).sendKeys(USER_PASSWORD);
         webDriver.findElement(By.id("login-button")).click();
 
         // Assert User name in the left-top side of screen that user is loggined
         String userNameXPath = "//span[text()='Roman Iovlev']";
-        Assertions.assertThat(webDriver.findElement(By.xpath(userNameXPath)).equals(userLogin));
+        Assertions.assertThat(webDriver.findElement(By.xpath(userNameXPath)).equals(USER_LOGIN));
         // Assert Username is loggined (is displayed)
         Assertions.assertThat(webDriver.findElement(By.xpath(userNameXPath)).isDisplayed());
 
