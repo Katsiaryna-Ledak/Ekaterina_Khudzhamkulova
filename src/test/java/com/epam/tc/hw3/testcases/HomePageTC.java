@@ -17,10 +17,10 @@ public class HomePageTC extends InitializationTest {
         LoginPanelPage loginPage = new LoginPanelPage(webDriver);
 
         // Open test site by URL
-        webDriver.navigate().to(siteURL);
+        webDriver.navigate().to(SITE_URL);
 
         // Assert Browser title
-        Assertions.assertThat(webDriver.getTitle()).isEqualTo(browserTitle);
+        Assertions.assertThat(webDriver.getTitle()).isEqualTo(BROWSER_TITLE);
 
         PropertiesFileReader fileReader = new PropertiesFileReader();
         // Perform login
@@ -37,13 +37,13 @@ public class HomePageTC extends InitializationTest {
         HomePage homePage = new HomePage(webDriver);
         List<String> actualNavBarElements = homePage.getNavBarItemsNames();
 
-        Integer expectedCountOfNavBarItems = navBarNames.size();
+        Integer expectedCountOfNavBarItems = NAV_BAR_NAMES.size();
         Integer actualCountOfNavBarItems = homePage.getNavBarItemsNames().size();
 
         // check count of items
         Assertions.assertThat(expectedCountOfNavBarItems.equals(actualCountOfNavBarItems));
         // check texts of items
-        for (String expectedNavBarItem : navBarNames) {
+        for (String expectedNavBarItem : NAV_BAR_NAMES) {
 
             for (String actualNavBarItem : actualNavBarElements) {
                 Assertions.assertThat(expectedNavBarItem.equals(actualNavBarItem));
@@ -60,12 +60,12 @@ public class HomePageTC extends InitializationTest {
 
         // Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<String> actualBenefitTexts = homePage.textUnderIndexImages();
-        Integer expCountOfTexts = benefitTexts.size();
+        Integer expCountOfTexts = BENEFIT_TEXTS.size();
         Integer actCountOfTexts = actualBenefitTexts.size();
         //check count of texts under images
         Assertions.assertThat(expCountOfTexts.equals(actCountOfTexts));
         //check content of texts under images
-        for (String expTextItem : benefitTexts) {
+        for (String expTextItem : BENEFIT_TEXTS) {
 
             for (String actTextItem : actualBenefitTexts) {
                 Assertions.assertThat(expTextItem.equals(actTextItem));
@@ -87,13 +87,13 @@ public class HomePageTC extends InitializationTest {
 
         // Assert that there are 5 items in the Left Section are displayed and they have proper text
         List<String> sideBarItems = homePage.getLeftSideBarItems();
-        Integer expectedCountOfLeftSideBarItems = leftSideBarMenuItems.size();
+        Integer expectedCountOfLeftSideBarItems = LEFT_SIDE_BAR_MENU_ITEMS.size();
         Integer actualCountOfLeftSideBarItems = sideBarItems.size();
 
         // check count of items
         Assertions.assertThat(expectedCountOfLeftSideBarItems.equals(actualCountOfLeftSideBarItems));
         // check texts of items
-        for (String expectedLeftSideBarItem : leftSideBarMenuItems) {
+        for (String expectedLeftSideBarItem : LEFT_SIDE_BAR_MENU_ITEMS) {
 
             for (String actualLeftSideBarItem : sideBarItems) {
                 Assertions.assertThat(expectedLeftSideBarItem.equals(actualLeftSideBarItem));
@@ -121,7 +121,7 @@ public class HomePageTC extends InitializationTest {
         //for radio button there is a log row and value is corresponded to the status of radio button
         //for dropdown there is a log row and value is corresponded to the selected value
         List<String> actualLogList = diffElementsPage.getLogList();
-        for (String expectedLogText : logTextItems) {
+        for (String expectedLogText : LOG_TEXT_ITEMS) {
 
             for (String actualLogText : actualLogList) {
                 Assertions.assertThat(expectedLogText.equals(actualLogText));
