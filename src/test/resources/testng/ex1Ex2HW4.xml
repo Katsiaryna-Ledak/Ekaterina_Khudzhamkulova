@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="suite that includes classes from specific package with specific groups ">
+  <!-- <listeners>
+    <listener class-name="com.epam.tc.selenium.lesson4.listeners.ScreenshotListener"/>
+  </listeners> -->
+  <test name="ex1Ex2HW4Test">
+    <packages>
+      <package name="com.epam.tc.hw4.testcases"></package>
+    </packages>
+  </test>
+</suite>
