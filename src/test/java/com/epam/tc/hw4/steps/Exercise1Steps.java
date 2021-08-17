@@ -8,6 +8,7 @@ import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+
 public class Exercise1Steps {
 
     protected HomePage homePage;
@@ -25,7 +26,8 @@ public class Exercise1Steps {
 
     @Step("Assert Browser title")
     public void assertBrowserTitle(String expectedTitle) {
-        Assertions.assertThat(homePage.getPageTitle()).isEqualTo(expectedTitle);
+        String actualTitle = homePage.getPageTitle();
+        Assertions.assertThat(actualTitle).isEqualTo(expectedTitle);
     }
 
     @Step("Perform login")
@@ -35,6 +37,12 @@ public class Exercise1Steps {
 
     @Step("Assert User name in the left-top side of screen that user is loggined as ROMAN IOVLEV")
     public void assertUserName(String userName) {
+        String actualName = loginPage.getLoggedInUserName();
+        Assertions.assertThat(actualName.equals(userName));
+    }
+
+    @Step("Assert User name in the left-top side of screen that user is loggined as KATE KHUD")
+    public void assertFailureUserName(String userName) {
         String actualName = loginPage.getLoggedInUserName();
         Assertions.assertThat(actualName.equals(userName));
     }
