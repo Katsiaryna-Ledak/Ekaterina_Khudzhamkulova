@@ -1,7 +1,7 @@
 package com.epam.tc.hw4.testcases;
 
-import com.epam.tc.hw3.util.PropertiesFileReader;
 import com.epam.tc.hw4.steps.Exersice2Steps;
+import com.epam.tc.hw4.util.PropertiesFileReader;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
