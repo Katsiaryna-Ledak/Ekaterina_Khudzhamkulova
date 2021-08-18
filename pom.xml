@@ -25,6 +25,7 @@
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <allure-testng.version>2.14.0</allure-testng.version>
         <aspectj.version>1.9.5</aspectj.version>
+        <cucumber.version>6.11.0</cucumber.version>
     </properties>
 
     <build>
@@ -135,11 +136,23 @@
 
         <profile>
             <id>ex1Ex2HW4Profile</id>
+            <!--
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            -->
+            <properties>
+                <testng.suite.file>${testng.configs.path}/ex1Ex2HW4.xml</testng.suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>cucumberHW4Profile</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <testng.suite.file>${testng.configs.path}/ex1Ex2HW4.xml</testng.suite.file>
+                <testng.suite.file>${testng.configs.path}/cucumberHW5.xml</testng.suite.file>
             </properties>
         </profile>
 
@@ -187,6 +200,25 @@
             <version>${allure-testng.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber6-jvm</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
+
     </dependencies>
 
     <reporting>
