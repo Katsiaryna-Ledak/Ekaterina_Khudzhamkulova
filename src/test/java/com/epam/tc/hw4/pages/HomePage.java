@@ -7,13 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
-    public WebDriver webDriver;
+public class HomePage extends AbstractPage {
 
-    public HomePage(WebDriver webDriver) {
-        PageFactory.initElements(webDriver, this);
-        this.webDriver = webDriver;
-    }
+    protected static final String SITE_URL = "https://jdi-testing.github.io/jdi-light/index.html";
 
     // header section web elements
     @FindBy(xpath = "//ul[@class='uui-navigation nav navbar-nav m-l8']")
@@ -43,7 +39,10 @@ public class HomePage {
     @FindBy(xpath = "//a[text() = 'Different elements']")
     private WebElement getServiceDiffElementsHeadMenu;
 
-    protected static String SITE_URL = "https://jdi-testing.github.io/jdi-light/index.html";
+    public HomePage(WebDriver webDriver) {
+        super(webDriver);
+        PageFactory.initElements(webDriver, this);
+    }
 
     public void openHomePage() {
         webDriver.navigate().to(SITE_URL);
