@@ -2,7 +2,7 @@
 <suite name="HW5CucumberSuite">
   <test name="HW5CucumberSuite">
     <classes>
-      <class name="com.epam.tc.hw5.cucumber.RunAcceptanceTest"/>
+      <class name="com.epam.tc.hw5.cucumber.exercise1.RunAcceptanceTest"/>
     </classes>
   </test>
 </suite>

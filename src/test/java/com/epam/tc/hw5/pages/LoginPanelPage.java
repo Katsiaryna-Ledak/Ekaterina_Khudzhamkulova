@@ -4,12 +4,9 @@ import com.epam.tc.hw5.components.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class LoginPanelPage extends AbstractPage {
-
-    public LoginPanelPage(WebDriver driver) {
-        super(driver);
-    }
+public class LoginPanelPage extends AbstractComponent {
 
     // login web elements
     @FindBy(id = "user-icon")
@@ -23,6 +20,11 @@ public class LoginPanelPage extends AbstractPage {
     @FindBy(id = "user-name")
     private WebElement userName;
 
+    public LoginPanelPage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
+    }
+
     public void performLogin(String userLoginName, String userPassword) {
         openLoginField.click();
         loginInput.click();;
@@ -30,10 +32,6 @@ public class LoginPanelPage extends AbstractPage {
         passwordInput.click();
         passwordInput.sendKeys(userPassword);
         loginButton.click();
-    }
-
-    public void openHomePage() {
-        openHomePage("index.html");
     }
 
 }

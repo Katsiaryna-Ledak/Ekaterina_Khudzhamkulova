@@ -1,17 +1,16 @@
 package com.epam.tc.hw5.pages;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends AbstractPage {
-    public WebDriver webDriver;
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
+    protected static final String SITE_URL = "https://jdi-testing.github.io/jdi-light/index.html";
+
+    public WebDriver webDriver;
 
     // header section web elements
     @FindBy(xpath = "//ul[@class='uui-navigation nav navbar-nav m-l8']")
@@ -41,7 +40,10 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//a[text() = 'Different elements']")
     private WebElement getServiceDiffElementsHeadMenu;
 
-    protected static String SITE_URL = "https://jdi-testing.github.io/jdi-light/index.html";
+    public HomePage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
+    }
 
     public void openHomePage() {
         openHomePage("index.html");

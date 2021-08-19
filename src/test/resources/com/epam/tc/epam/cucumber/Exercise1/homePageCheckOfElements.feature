@@ -11,5 +11,5 @@ Feature: check of elements at Home Page and Different Elements Page
     And I select selen radio button
     And I select yellow color from dropdown list
 
-    Then Log rows are displayed on 'Different Elements' page
+    Then Log rows are displayed on Different Elements page
 
