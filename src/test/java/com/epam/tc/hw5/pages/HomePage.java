@@ -39,6 +39,8 @@ public class HomePage extends AbstractPage {
     private List<WebElement> headMenuElement;
     @FindBy(xpath = "//a[text() = 'Different elements']")
     private WebElement getServiceDiffElementsHeadMenu;
+    @FindBy(xpath = "//ul/li/ul/li/a[text()='User Table ']")
+    private WebElement getServiceUserTable;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -52,5 +54,10 @@ public class HomePage extends AbstractPage {
     public void clickOnServiceDiffElementsHead() {
         headMenuElement.get(2).click();
         getServiceDiffElementsHeadMenu.click();
+    }
+
+    public void clickOnServiceUserTable() {
+        headMenuElement.get(2).click();
+        getServiceUserTable.click();
     }
 }
