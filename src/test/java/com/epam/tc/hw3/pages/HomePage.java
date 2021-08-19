@@ -7,13 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
-    public WebDriver webDriver;
-
-    public HomePage(WebDriver webDriver) {
-        PageFactory.initElements(webDriver, this);
-        this.webDriver = webDriver;
-    }
+public class HomePage extends AbstractPage {
 
     // header section web elements
     @FindBy(xpath = "//ul[@class='uui-navigation nav navbar-nav m-l8']")
@@ -43,7 +37,10 @@ public class HomePage {
     @FindBy(xpath = "//a[text() = 'Different elements']")
     private WebElement getServiceDiffElementsHeadMenu;
 
-
+    public HomePage(WebDriver webDriver) {
+        super(webDriver);
+        PageFactory.initElements(webDriver, this);
+    }
 
     public List<String> getNavBarItemsNames() {
         List<String> navBarItemsList = new ArrayList<>();

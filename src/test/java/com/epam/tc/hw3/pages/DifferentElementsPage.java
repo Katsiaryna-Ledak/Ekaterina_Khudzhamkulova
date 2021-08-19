@@ -7,14 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DifferentElementsPage {
-
-    WebDriver webDriver;
-
-    public DifferentElementsPage(WebDriver webDriver) {
-        PageFactory.initElements(webDriver, this);
-        this.webDriver = webDriver;
-    }
+public class DifferentElementsPage extends AbstractPage {
 
     // check boxes
     @FindBy(css = "input[type=checkbox]")
@@ -33,6 +26,11 @@ public class DifferentElementsPage {
     // log panel elements
     @FindBy(css = "ul.panel-body-list.logs > li")
     private List<WebElement> logElementList;
+
+    public DifferentElementsPage(WebDriver webDriver) {
+        super(webDriver);
+        PageFactory.initElements(webDriver, this);
+    }
 
     public void selectWaterCheckBox() {
         getCheckboxes.get(0).click();

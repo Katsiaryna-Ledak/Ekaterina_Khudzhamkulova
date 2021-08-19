@@ -5,14 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPanelPage {
-
-    WebDriver webDriver;
-
-    public LoginPanelPage(WebDriver webDriver) {
-        PageFactory.initElements(webDriver, this);
-        this.webDriver = webDriver;
-    }
+public class LoginPanlComponent extends AbstractPage {
 
     // login web elements
     @FindBy(id = "user-icon")
@@ -25,6 +18,11 @@ public class LoginPanelPage {
     private WebElement loginButton;
     @FindBy(id = "user-name")
     private WebElement userName;
+
+    public LoginPanlComponent(WebDriver webDriver) {
+        super(webDriver);
+        PageFactory.initElements(webDriver, this);
+    }
 
     public void performLogin(String userLoginName, String userPassword) {
         openLoginField.click();

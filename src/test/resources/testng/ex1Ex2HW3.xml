@@ -2,9 +2,9 @@
 
 <suite name="ex1Ex2HW3TestSuite">
   <test name="ex1Ex2HW3TestSuite">
-    <packages>
-      <package name="com.epam.tc.hw3.testcases.HomePageTC"></package>
-      <package name="com.epam.tc.hw3.testcases.InitializationTest"></package>
-    </packages>
+    <classes>
+      <class name="com.epam.tc.hw3.testcases.Exercise1TC"/>
+      <class name="com.epam.tc.hw3.testcases.Exercise2TC"></class>
+    </classes>
   </test>
 </suite>
