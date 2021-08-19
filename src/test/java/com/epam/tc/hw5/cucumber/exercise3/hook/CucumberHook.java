@@ -1,4 +1,4 @@
-package com.epam.tc.hw5.hook;
+package com.epam.tc.hw5.cucumber.exercise3.hook;
 
 import com.epam.tc.hw5.utils.TestContext;
 import io.cucumber.java.After;
@@ -26,3 +26,5 @@ public class CucumberHook {
         TestContext.getInstance().cleanContext();
     }
 }
+
+

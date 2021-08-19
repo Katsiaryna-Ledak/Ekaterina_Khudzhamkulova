@@ -27,6 +27,12 @@ public class UserTablePage extends AbstractPage {
     @FindBy(css = "tbody tr:first-child option")
     private List<WebElement> dropdownValuesForUserRoman;
 
+    @FindBy(id = "ivan")
+    private WebElement vipCheckboxForSergeyIvan;
+
+    @FindBy(css = ".panel-body-list > li")
+    private WebElement logVipCheckboxForSergeyIvan;
+
     public UserTablePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -82,5 +88,13 @@ public class UserTablePage extends AbstractPage {
             actualValuesForRomanList.add(item.getText());
         }
         return actualValuesForRomanList;
+    }
+
+    public void setVipCheckboxForSergeyIvan() {
+        vipCheckboxForSergeyIvan.click();
+    }
+
+    public String getLogVipCheckboxForSergeyIvan() {
+        return logVipCheckboxForSergeyIvan.getText();
     }
 }
