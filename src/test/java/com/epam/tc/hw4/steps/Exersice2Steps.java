@@ -2,7 +2,7 @@ package com.epam.tc.hw4.steps;
 
 import com.epam.tc.hw4.pages.DifferentElementsPage;
 import com.epam.tc.hw4.pages.HomePage;
-import com.epam.tc.hw4.pages.LoginPanelPage;
+import com.epam.tc.hw4.pages.LoginPanelComponent;
 import io.qameta.allure.Step;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -11,12 +11,12 @@ import org.openqa.selenium.WebDriver;
 public class Exersice2Steps {
 
     protected HomePage homePage;
-    protected LoginPanelPage loginPage;
+    protected LoginPanelComponent loginPage;
     protected DifferentElementsPage differentElementsPage;
 
     public Exersice2Steps(WebDriver webDriver) {
         differentElementsPage = new DifferentElementsPage(webDriver);
-        loginPage = new LoginPanelPage(webDriver);
+        loginPage = new LoginPanelComponent(webDriver);
         homePage = new HomePage(webDriver);
     }
 

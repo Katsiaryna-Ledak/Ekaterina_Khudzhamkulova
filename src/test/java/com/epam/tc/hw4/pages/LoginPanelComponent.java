@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPanelPage extends AbstractPage {
+public class LoginPanelComponent extends AbstractPage {
 
     // login web elements
     @FindBy(id = "user-icon")
@@ -19,7 +19,7 @@ public class LoginPanelPage extends AbstractPage {
     @FindBy(id = "user-name")
     private WebElement userName;
 
-    public LoginPanelPage(WebDriver webDriver) {
+    public LoginPanelComponent(WebDriver webDriver) {
         super(webDriver);
         PageFactory.initElements(webDriver, this);
     }
