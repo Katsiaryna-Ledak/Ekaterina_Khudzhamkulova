@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class PropertiesFileReader {
 
-    protected String userLoginInfoFile = ".\\src\\test\\resources\\HW3.properties";
+    protected String userLoginInfoFile = "src/test/resources/HW3.properties";
 
     public String getProperties(String name) {
         Properties properties = new Properties();
