@@ -37,6 +37,8 @@ public class HomePage extends AbstractPage {
     // head menu elements
     @FindBy(xpath = "//ul[contains(@class, 'm-l8')]/li/a")
     private List<WebElement> headMenuElement;
+    @FindBy(xpath = "//div//ul/li[@class='dropdown']")
+    private WebElement serviceButton;
     @FindBy(xpath = "//a[text() = 'Different elements']")
     private WebElement getServiceDiffElementsHeadMenu;
     @FindBy(xpath = "//ul/li/ul/li/a[text()='User Table ']")
@@ -57,7 +59,10 @@ public class HomePage extends AbstractPage {
     }
 
     public void clickOnServiceUserTable() {
-        headMenuElement.get(2).click();
         getServiceUserTable.click();
+    }
+
+    public void clickOnServiceOption() {
+        serviceButton.click();
     }
 }

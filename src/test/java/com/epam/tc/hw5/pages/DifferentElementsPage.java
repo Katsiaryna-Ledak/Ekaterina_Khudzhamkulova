@@ -1,19 +1,12 @@
 package com.epam.tc.hw5.pages;
 
-import com.epam.tc.hw5.components.AbstractComponent;
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class DifferentElementsPage extends AbstractPage {
-
-    public DifferentElementsPage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
-    }
 
     // check boxes
     @FindBy(css = "input[type=checkbox]")
@@ -32,6 +25,10 @@ public class DifferentElementsPage extends AbstractPage {
     // log panel elements
     @FindBy(css = "ul.panel-body-list.logs > li")
     private List<WebElement> logElementList;
+
+    public DifferentElementsPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void openHomePage() {
         openHomePage("different-elements.html");

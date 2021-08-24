@@ -1,4 +1,4 @@
-package com.epam.tc.hw5.cucumber.exercise2.steps;
+package com.epam.tc.hw5.cucumber.steps;
 
 import com.epam.tc.hw5.pages.DifferentElementsPage;
 import com.epam.tc.hw5.pages.HomePage;

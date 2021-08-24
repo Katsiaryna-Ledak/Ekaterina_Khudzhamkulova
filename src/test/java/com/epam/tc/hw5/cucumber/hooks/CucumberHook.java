@@ -1,4 +1,4 @@
-package com.epam.tc.hw5.cucumber.exercise1.hook;
+package com.epam.tc.hw5.cucumber.hooks;
 
 import com.epam.tc.hw5.utils.TestContext;
 import io.cucumber.java.After;

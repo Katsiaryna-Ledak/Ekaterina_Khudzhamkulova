@@ -1,4 +1,4 @@
-package com.epam.tc.hw5.cucumber.exercise2.steps;
+package com.epam.tc.hw5.cucumber.steps;
 
 import com.epam.tc.hw5.utils.PropertiesFileReader;
 import io.cucumber.java.en.And;
@@ -18,4 +18,10 @@ public class GivenStep extends AbstractStep {
         String password = fileReader.getProperties("userPassword");
         loginPage.performLogin(login, password);
     }
+
+    @And("I click on 'Different Elements' subcategory in 'Service' button in Header menu")
+    public void clickOnDiffElementsOnServiceHead() {
+        homePage.clickOnServiceDiffElementsHead();
+    }
 }
+
