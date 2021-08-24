@@ -29,7 +29,6 @@ public class DifferentElementsPage extends AbstractPage {
 
     public DifferentElementsPage(WebDriver webDriver) {
         super(webDriver);
-        PageFactory.initElements(webDriver, this);
     }
 
     public void selectWaterCheckBox() {
