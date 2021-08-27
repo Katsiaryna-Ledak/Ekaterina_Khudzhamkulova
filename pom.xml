@@ -23,10 +23,14 @@
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <allure-testng.version>2.14.0</allure-testng.version>
+        <aspectj.version>1.9.5</aspectj.version>
+        <cucumber.version>6.11.0</cucumber.version>
     </properties>
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -59,16 +63,29 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <argLine>
+                        --illegal-access=permit
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>${testng.suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
+
         </plugins>
     </build>
 
@@ -76,9 +93,11 @@
 
         <profile>
             <id>default-operations-profile</id>
+            <!--
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            -->
             <properties>
                 <testng.suite.file>${testng.configs.path}/defaultTests.xml</testng.suite.file>
             </properties>
@@ -115,6 +134,28 @@
             </properties>
         </profile>
 
+        <profile>
+            <id>ex1Ex2HW4Profile</id>
+            <!--
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            -->
+            <properties>
+                <testng.suite.file>${testng.configs.path}/ex1Ex2HW4.xml</testng.suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>cucumberHW5Profile</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/cucumberHW5.xml</testng.suite.file>
+            </properties>
+        </profile>
+
     </profiles>
 
     <dependencies>
@@ -124,12 +165,14 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>calculator-1.0</groupId>
             <artifactId>calculator-1.0</artifactId>
@@ -137,16 +180,58 @@
             <version>1.0</version>
             <systemPath>${basedir}/src/lib/calculator-1.0.jar</systemPath>
         </dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium-java.version}</version>
         </dependency>
+
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber6-jvm</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
+
     </dependencies>
+
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>${allure-testng.version}</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

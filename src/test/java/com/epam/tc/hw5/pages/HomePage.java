@@ -1,6 +1,5 @@
-package com.epam.tc.hw3.pages;
+package com.epam.tc.hw5.pages;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends AbstractPage {
+
+    protected static final String SITE_URL = "https://jdi-testing.github.io/jdi-light/index.html";
+
+    public WebDriver webDriver;
 
     // header section web elements
     @FindBy(xpath = "//ul[@class='uui-navigation nav navbar-nav m-l8']")
@@ -34,48 +37,20 @@ public class HomePage extends AbstractPage {
     // head menu elements
     @FindBy(xpath = "//ul[contains(@class, 'm-l8')]/li/a")
     private List<WebElement> headMenuElement;
+    @FindBy(xpath = "//div//ul/li[@class='dropdown']")
+    private WebElement serviceButton;
     @FindBy(xpath = "//a[text() = 'Different elements']")
     private WebElement getServiceDiffElementsHeadMenu;
+    @FindBy(xpath = "//ul/li/ul/li/a[text()='User Table ']")
+    private WebElement getServiceUserTable;
 
-    public HomePage(WebDriver webDriver) {
-        super(webDriver);
-        PageFactory.initElements(webDriver, this);
+    public HomePage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
     }
 
-    public List<String> getNavBarItemsNames() {
-        List<String> navBarItemsList = new ArrayList<>();
-        for (WebElement navBarItem : navBarElements) {
-            navBarItemsList.add(navBarItem.getText());
-        }
-        return navBarItemsList;
-    }
-
-    public List<WebElement> getIndexImages() {
-        return indexImagesList;
-    }
-
-    public List<String> textUnderIndexImages() {
-        List<String> textUnderImagesList = new ArrayList<>();
-        for (WebElement textUnderImage : textUnderBenefitImagesList) {
-            textUnderImagesList.add(textUnderImage.getText());
-        }
-        return textUnderImagesList;
-    }
-
-    public WebElement getFrameElement() {
-        return frame;
-    }
-
-    public WebElement getFrameButton() {
-        return frameButton;
-    }
-
-    public List<String> getLeftSideBarItems() {
-        List<String> leftSideBarItemsList = new ArrayList<>();
-        for (WebElement leftBarItem : leftSideBarItems) {
-            leftSideBarItemsList.add(leftBarItem.getText());
-        }
-        return leftSideBarItemsList;
+    public void openHomePage() {
+        openHomePage("index.html");
     }
 
     public void clickOnServiceDiffElementsHead() {
@@ -83,4 +58,11 @@ public class HomePage extends AbstractPage {
         getServiceDiffElementsHeadMenu.click();
     }
 
+    public void clickOnServiceUserTable() {
+        getServiceUserTable.click();
+    }
+
+    public void clickOnServiceOption() {
+        serviceButton.click();
+    }
 }
