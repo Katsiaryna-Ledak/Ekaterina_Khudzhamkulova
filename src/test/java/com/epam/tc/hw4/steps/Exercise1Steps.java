@@ -1,7 +1,7 @@
 package com.epam.tc.hw4.steps;
 
 import com.epam.tc.hw4.pages.HomePage;
-import com.epam.tc.hw4.pages.LoginPanelPage;
+import com.epam.tc.hw4.pages.LoginPanelComponent;
 import io.qameta.allure.Step;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -12,10 +12,10 @@ import org.openqa.selenium.WebElement;
 public class Exercise1Steps {
 
     protected HomePage homePage;
-    protected LoginPanelPage loginPage;
+    protected LoginPanelComponent loginPanel;
 
     public Exercise1Steps(WebDriver webDriver) {
-        loginPage = new LoginPanelPage(webDriver);
+        loginPanel = new LoginPanelComponent(webDriver);
         homePage = new HomePage(webDriver);
     }
 
@@ -32,18 +32,18 @@ public class Exercise1Steps {
 
     @Step("Perform login")
     public void performLogin(String login, String password) {
-        loginPage.performLogin(login, password);
+        loginPanel.performLogin(login, password);
     }
 
     @Step("Assert User name in the left-top side of screen that user is loggined as ROMAN IOVLEV")
     public void assertUserName(String userName) {
-        String actualName = loginPage.getLoggedInUserName();
+        String actualName = loginPanel.getLoggedInUserName();
         Assertions.assertThat(actualName.equals(userName));
     }
 
     @Step("Assert User name in the left-top side of screen that user is loggined as KATE KHUD")
     public void assertFailureUserName(String userName) {
-        String actualName = loginPage.getLoggedInUserName();
+        String actualName = loginPanel.getLoggedInUserName();
         Assertions.assertThat(actualName.equals(userName));
     }
 

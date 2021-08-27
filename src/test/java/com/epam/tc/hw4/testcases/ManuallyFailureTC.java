@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class ManuallyFailureTC extends InitializationTest {
 
     @Feature("HomePage Test")
-    @Story("We assert failure manually using wring browser title and wrong user information")
+    @Story("We assert failure manually using wrong browser title and wrong user information")
     @Test
     public void failureTest() {
 
