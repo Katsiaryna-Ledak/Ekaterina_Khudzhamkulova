@@ -4,8 +4,10 @@ import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.Title;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.common.Icon;
+import com.epam.jdi.light.ui.html.elements.common.Text;
 import com.epam.tc.hw7.site.components.LoginForm;
 
 @Url("/index.html")
@@ -18,4 +20,14 @@ public class HomePage extends WebPage {
 
     @Css("header a[href = 'metals-colors.html']")
     public static Button metalsColorsButton;
+
+    @UI("[id = user-name]")
+    public static Text userName;
+    @Css(".logout")
+    Button logOut;
+
+    public void logout() {
+        userIcon.click();
+        logOut.click();
+    }
 }

@@ -25,8 +25,10 @@
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <allure-testng.version>2.14.0</allure-testng.version>
         <aspectj.version>1.9.5</aspectj.version>
+        <cucumber.version>6.11.0</cucumber.version>
         <slf4j.version>2.0.0-alpha4</slf4j.version>
         <jdi-light-html.version>1.3.13</jdi-light-html.version>
+        <lombok.version>1.18.20</lombok.version>
     </properties>
 
     <build>
@@ -146,6 +148,16 @@
         </profile>
 
         <profile>
+            <id>cucumberHW5Profile</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <testng.suite.file>${testng.configs.path}/cucumberHW5.xml</testng.suite.file>
+            </properties>
+        </profile>
+
+        <profile>
             <id>ex1Ex2HW6Profile</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -156,7 +168,7 @@
         </profile>
 
         <profile>
-            <id>HW8JDIProfile</id>
+            <id>HW7JDIProfile</id>
             <properties>
                 <testng.suite.file>${testng.configs.path}/jdiTests.xml</testng.suite.file>
             </properties>
@@ -210,12 +222,30 @@
             <scope>test</scope>
         </dependency>
 
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>RELEASE</version>
-        <scope>test</scope>
-      </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber6-jvm</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>

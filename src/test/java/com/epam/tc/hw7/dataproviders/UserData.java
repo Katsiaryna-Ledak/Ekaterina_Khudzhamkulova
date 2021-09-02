@@ -6,7 +6,8 @@ public class UserData {
 
     public static User DEFAULT_USER = new User().set(
         u -> {
-            u.userName = "Roman";
+            u.name = "Roman";
+            u.fullName = "ROMAN IOVLEV";
             u.password = "Jdi1234";
         });
 }

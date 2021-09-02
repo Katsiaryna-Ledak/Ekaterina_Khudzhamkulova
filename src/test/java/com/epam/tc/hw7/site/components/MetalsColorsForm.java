@@ -1,7 +1,6 @@
 package com.epam.tc.hw7.site.components;
 
 import static com.epam.tc.hw7.site.pages.MetalsAndColorsPage.transferListOfResults;
-import static org.hamcrest.Matchers.equalTo;
 
 import com.epam.jdi.light.elements.complex.Checklist;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
@@ -16,7 +15,7 @@ import com.epam.tc.hw7.entities.MetalsColorsModel;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.hamcrest.MatcherAssert;
+import org.assertj.core.api.SoftAssertions;
 
 public class MetalsColorsForm extends Form<MetalsColorsModel> {
 
@@ -72,9 +71,14 @@ public class MetalsColorsForm extends Form<MetalsColorsModel> {
             "Metal: " + metalsColorsModel.metals, "Vegetables: " + stringOfVegetables
         );
 
-        MatcherAssert.assertThat("Expected results in 'Result section' are not equal to actual results",
-            transferListOfResults(),
-            equalTo(expectedResult));
+        List<String> actualResult = transferListOfResults();
+
+        SoftAssertions soft = new SoftAssertions();
+
+        soft.assertThat(actualResult)
+            .as("Expected results in 'Result section' are not equal to actual results")
+            .isEqualTo(expectedResult);
+
     }
 
     @Override
