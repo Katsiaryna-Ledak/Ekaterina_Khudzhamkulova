@@ -23,11 +23,5 @@ public class HomePage extends WebPage {
 
     @UI("[id = user-name]")
     public static Text userName;
-    @Css(".logout")
-    Button logOut;
 
-    public void logout() {
-        userIcon.click();
-        logOut.click();
-    }
 }

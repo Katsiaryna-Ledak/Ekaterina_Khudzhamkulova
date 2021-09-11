@@ -31,7 +31,6 @@ public class BaseTest {
 
     @AfterSuite(alwaysRun = true)
     static void teardown() {
-        homePage.logout();
         killAllSeleniumDrivers();
     }
 }
